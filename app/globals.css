@@ -2,6 +2,14 @@
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+:focus-visible { outline: 2px solid #b89b5e; outline-offset: 3px; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f5f0e8; }
+::-webkit-scrollbar-thumb { background: #b89b5e; border-radius: 999px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
