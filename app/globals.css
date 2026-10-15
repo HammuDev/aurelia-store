@@ -10,6 +10,31 @@ body { overflow-x: hidden; }
 ::-webkit-scrollbar-thumb { background: #b89b5e; border-radius: 999px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
 
+@layer base {
+  button, [role="button"], a[href], summary, label[for], select, input[type="checkbox"], input[type="radio"], input[type="range"], [data-clickable] { cursor: pointer; }
+  button:disabled, [aria-disabled="true"] { cursor: not-allowed; opacity: .6; }
+  button, [role="button"], a[href], summary, select { -webkit-tap-highlight-color: transparent; touch-action: manipulation; transition: transform 240ms ease-out, color 240ms ease-out, background-color 240ms ease-out, border-color 240ms ease-out, box-shadow 240ms ease-out, opacity 240ms ease-out; }
+  button:focus-visible, [role="button"]:focus-visible, a[href]:focus-visible, summary:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  @media (hover: hover) {
+    a[href]:not(.no-link-underline) { position: relative; }
+    a[href]:not(.no-link-underline)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 1px; background: var(--gold); transition: right 240ms ease-out; }
+    a[href]:not(.no-link-underline):hover::after { right: 0; }
+    button:not(:disabled):hover, [role="button"]:not([aria-disabled="true"]):hover { transform: translateY(-2px); }
+  }
+  button:not(:disabled):active, [role="button"]:not([aria-disabled="true"]):active { transform: scale(.95); }
+}
+
+@media (hover: none) { button:hover, a:hover { transform: none; } }
+
+@media (hover: hover) {
+  .group:hover > .group, .group:has(> .group:hover) { transform: translateY(-4px); }
+}
+
+@keyframes aurelia-pulse-ring { 0%, 100% { box-shadow: 0 0 0 0 rgb(169 130 82 / .25); } 50% { box-shadow: 0 0 0 8px rgb(169 130 82 / 0); } }
+.whatsapp-float { animation: aurelia-pulse-ring 4s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .whatsapp-float { animation: none; } }
+
+
 .hero-banner { min-height: 480px; height: 75svh; }
 .hero-banner-content { min-height: 480px; }
 @media (min-width: 768px) { .hero-banner { height: 70svh; } .hero-banner-content { min-height: 70svh; } }

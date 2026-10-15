@@ -1,11 +1,23 @@
+export const WHATSAPP_NUMBER = '923279500086'
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
+export const PHONE_DISPLAY = '0327 9500086'
+
+export const SOCIAL = {
+  instagram: 'https://instagram.com/aurelia.pk',
+  facebook: 'https://facebook.com/aurelia.pk',
+  tiktok: 'https://tiktok.com/@aurelia.pk',
+  youtube: 'https://youtube.com/@aurelia.pk',
+  whatsapp: WHATSAPP_URL,
+}
+
 export const siteConfig = {
-  whatsappNumber: '923001234567',
-  whatsappUrl: 'https://wa.me/923001234567',
+  whatsappNumber: WHATSAPP_NUMBER,
+  whatsappUrl: WHATSAPP_URL,
   instagramUrl: 'https://instagram.com/aurelia.pk',
   facebookUrl: 'https://facebook.com/aurelia.pk',
   tiktokUrl: 'https://tiktok.com/@aurelia.pk',
   youtubeUrl: 'https://youtube.com/@aurelia.pk',
-  phone: '+92 300 1234567',
+  phone: PHONE_DISPLAY,
   email: 'hello@aurelia.pk',
   address: 'Plot 18, Industrial Area, Lahore, Pakistan',
   businessHours: 'Monday–Saturday, 10:00 AM–6:00 PM',

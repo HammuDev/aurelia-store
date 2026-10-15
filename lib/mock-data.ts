@@ -1,4 +1,4 @@
-export type Product = { id: string; name: string; price: number; category: string; fabric: string; color: string; colors: string[]; sizes: string[]; images: string[]; colorImages: Record<string, string[]>; image: string; badge?: string; stock: number; description: string }
+export type Product = { id: string; name: string; price: number; category: string; fabric: string; color: string; colors: string[]; sizes: string[]; images: string[]; colorImages: Record<string, string[]>; image: string; badge?: string; stock: number; description: string; isNew: boolean }
 
 const existingProductImages = ['/products/noor-front.png', '/products/mahr-detail.png', '/products/safa-front.png', '/products/layla-side.png']
 const gallery = (slug: string, color: string, index: number) => {
@@ -20,7 +20,7 @@ const base = [
   ['ayla','Ayla Bridal Cape',15990,'Bridal','Chiffon','Black',['Black','White'],['S','M','L'],'Bridal','A sheer chiffon cape layered over a graceful base for your most memorable moments.'],
   ['noor-mini','Noor Mini Abaya',4290,'Kids','Crepe','Black',['Black','White'],['4Y','6Y','8Y','10Y'],undefined,'A mini version of our signature Noor silhouette.'],
 ] as const
-export const products: Product[] = base.map((p,i) => { const colorImages = { black: gallery(p[0], 'black', i), white: gallery(p[0], 'white', i) }; return { id:p[0],name:p[1],price:p[2],category:p[3],fabric:p[4],color:p[5],colors:[...p[6]],sizes:[...p[7]],badge:p[8],description:p[9],stock:i===4?0:i<3?3:12,colorImages,images:colorImages.black,image:colorImages.black[0] } })
+export const products: Product[] = base.map((p,i) => { const colorImages = { black: gallery(p[0], 'black', i), white: gallery(p[0], 'white', i) }; return { id:p[0],name:p[1],price:p[2],category:p[3],fabric:p[4],color:p[5],colors:[...p[6]],sizes:[...p[7]],badge:p[8],description:p[9],stock:i===4?0:i<3?3:12,isNew:p[3] === 'New Arrivals',colorImages,images:colorImages.black,image:colorImages.black[0] } })
 
 export const formatPrice = (value:number) => `PKR ${value.toLocaleString('en-PK')}`
 export const getProduct = (id:string) => products.find(p=>p.id===id) ?? products[0]
