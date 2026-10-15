@@ -9,4 +9,5 @@ export const siteConfig = {
   email: 'hello@aurelia.pk',
   address: 'Plot 18, Industrial Area, Lahore, Pakistan',
   businessHours: 'Monday–Saturday, 10:00 AM–6:00 PM',
+  eidSaleEnds: '2027-03-20T23:59:59+05:00',
 }
