@@ -1,6 +1,7 @@
 export type Product = { id: string; name: string; price: number; category: string; fabric: string; color: string; colors: string[]; sizes: string[]; images: string[]; colorImages: Record<string, string[]>; image: string; badge?: string; stock: number; description: string }
 
-const gallery = (slug: string, color: string) => [1, 2, 3, 4].map(n => `/products/${slug}/${color.toLowerCase()}-${n}.jpg`)
+const existingProductImages = ['/products/noor-front.png', '/products/mahr-detail.png', '/products/safa-front.png', '/products/layla-side.png']
+const gallery = (slug: string, color: string, index: number) => color.toLowerCase() === 'black' ? [existingProductImages[index % existingProductImages.length]] : []
 const base = [
   ['noor','Noor Silk Abaya',8490,'New Arrivals','Nida','Black',['Black','White'],['S','M','L','XL'],'New','A fluid, softly structured abaya in premium Nida silk with a graceful drape and hidden front placket.'],
   ['mahr','Mahr Embroidered Abaya',12990,'Bridal','Chiffon','Black',['Black','White'],['S','M','L'],'Bestseller','Delicate tonal embroidery catches the light on this occasion-ready silhouette.'],
@@ -15,7 +16,7 @@ const base = [
   ['ayla','Ayla Bridal Cape',15990,'Bridal','Chiffon','Black',['Black','White'],['S','M','L'],'Bridal','A sheer chiffon cape layered over a graceful base for your most memorable moments.'],
   ['noor-mini','Noor Mini Abaya',4290,'Kids','Crepe','Black',['Black','White'],['4Y','6Y','8Y','10Y'],undefined,'A mini version of our signature Noor silhouette.'],
 ] as const
-export const products: Product[] = base.map((p,i) => { const colorImages = { black: gallery(p[0], 'black'), white: gallery(p[0], 'white') }; return { id:p[0],name:p[1],price:p[2],category:p[3],fabric:p[4],color:p[5],colors:[...p[6]],sizes:[...p[7]],badge:p[8],description:p[9],stock:i===4?0:i<3?3:12,colorImages,images:colorImages.black,image:colorImages.black[0] } })
+export const products: Product[] = base.map((p,i) => { const colorImages = { black: gallery(p[0], 'black', i), white: gallery(p[0], 'white', i) }; return { id:p[0],name:p[1],price:p[2],category:p[3],fabric:p[4],color:p[5],colors:[...p[6]],sizes:[...p[7]],badge:p[8],description:p[9],stock:i===4?0:i<3?3:12,colorImages,images:colorImages.black,image:colorImages.black[0] } })
 
 export const formatPrice = (value:number) => `PKR ${value.toLocaleString('en-PK')}`
 export const getProduct = (id:string) => products.find(p=>p.id===id) ?? products[0]
@@ -24,7 +25,7 @@ export const occasions = ['Daily','Eid','Bridal','Kids','Office']
 export const productColors = ['Black','White','Ivory','Mocha','Olive','Rose','Midnight']
 export const featuredEid = products.filter(p => p.category === 'Eid').slice(0, 3)
 export const placeholderBlur = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PC9zdmc+'
-export const customerPhotos = ['/products/noor/black-1.jpg','/products/mahr/black-2.jpg','/products/safa/black-3.jpg','/products/layla/black-4.jpg']
+export const customerPhotos = ['/products/noor-front.png','/products/mahr-detail.png','/products/safa-front.png','/products/layla-side.png']
 export const testimonials = [
   ['Ayesha K.','Lahore','The Noor drapes beautifully and arrived carefully packed.','5'],['Mariam R.','Karachi','The quality feels so considered. I will be ordering again.','5'],['Sana H.','Islamabad','A perfect fit, and the exchange process was effortless.','5'],['Iqra F.','Faisalabad','The fabric is soft, breathable and exactly as pictured.','5'],['Hiba A.','Lahore','My Eid outfit was understated and beautiful.','5'],['Zainab M.','Karachi','Beautiful craftsmanship and thoughtful packaging.','5'],
 ] as const
