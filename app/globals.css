@@ -10,6 +10,12 @@ body { overflow-x: hidden; }
 ::-webkit-scrollbar-thumb { background: #b89b5e; border-radius: 999px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
 
+.hero-banner { min-height: 480px; height: 75svh; }
+.hero-banner-content { min-height: 480px; }
+@media (min-width: 768px) { .hero-banner { height: 70svh; } .hero-banner-content { min-height: 70svh; } }
+@media (min-width: 1024px) { .hero-banner { height: min(85vh, 800px); } .hero-banner-content { min-height: min(85vh, 800px); } }
+@media (max-width: 767px) { .hero-banner .hero-copy { margin-inline: auto; text-align: center; } .hero-banner .hero-cta { display: block; width: 100%; text-align: center; } }
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

@@ -1,7 +1,11 @@
 export type Product = { id: string; name: string; price: number; category: string; fabric: string; color: string; colors: string[]; sizes: string[]; images: string[]; colorImages: Record<string, string[]>; image: string; badge?: string; stock: number; description: string }
 
 const existingProductImages = ['/products/noor-front.png', '/products/mahr-detail.png', '/products/safa-front.png', '/products/layla-side.png']
-const gallery = (slug: string, color: string, index: number) => color.toLowerCase() === 'black' ? [existingProductImages[index % existingProductImages.length]] : []
+const gallery = (slug: string, color: string, index: number) => {
+  const primary = existingProductImages[index % existingProductImages.length]
+  const detail = existingProductImages[(index + 1) % existingProductImages.length]
+  return color.toLowerCase() === 'black' ? [primary, detail] : [primary, detail]
+}
 const base = [
   ['noor','Noor Silk Abaya',8490,'New Arrivals','Nida','Black',['Black','White'],['S','M','L','XL'],'New','A fluid, softly structured abaya in premium Nida silk with a graceful drape and hidden front placket.'],
   ['mahr','Mahr Embroidered Abaya',12990,'Bridal','Chiffon','Black',['Black','White'],['S','M','L'],'Bestseller','Delicate tonal embroidery catches the light on this occasion-ready silhouette.'],
