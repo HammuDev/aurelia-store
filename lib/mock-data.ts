@@ -2,9 +2,8 @@ export type Product = { id: string; name: string; price: number; category: strin
 
 const existingProductImages = ['/products/noor-front.png', '/products/mahr-detail.png', '/products/safa-front.png', '/products/layla-side.png']
 const gallery = (slug: string, color: string, index: number) => {
-  const primary = existingProductImages[index % existingProductImages.length]
-  const detail = existingProductImages[(index + 1) % existingProductImages.length]
-  return color.toLowerCase() === 'black' ? [primary, detail] : [primary, detail]
+  if (color.toLowerCase() === 'black') return ['/products/noor-front.png']
+  return ['/products/mahr-detail.png']
 }
 const base = [
   ['noor','Noor Silk Abaya',8490,'New Arrivals','Nida','Black',['Black','White'],['S','M','L','XL'],'New','A fluid, softly structured abaya in premium Nida silk with a graceful drape and hidden front placket.'],
