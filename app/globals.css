@@ -34,7 +34,6 @@ body { overflow-x: hidden; }
 .whatsapp-float { animation: aurelia-pulse-ring 4s ease-out infinite; }
 @media (prefers-reduced-motion: reduce) { .whatsapp-float { animation: none; } }
 
-@media (hover: hover) { .group:hover .group-hover\\:scale-105 { transform: scale(1.03); } }
 
 .hero-banner { min-height: 480px; height: 75svh; }
 .hero-banner-content { min-height: 480px; }
