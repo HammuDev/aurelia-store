@@ -1,6 +1,6 @@
 export type Product = { id: string; name: string; price: number; category: string; fabric: string; color: string; colors: string[]; sizes: string[]; images: string[]; image: string; badge?: string; stock: number; description: string }
 
-const images = ['/aurelia-hero.png?view=1','/aurelia-hero.png?view=2','/aurelia-hero.png?view=3','/aurelia-hero.png?view=4','/aurelia-hero.png?view=5','/aurelia-hero.png?view=6']
+const images = ['/products/noor-front.png','/products/mahr-detail.png','/products/safa-front.png','/products/layla-side.png','/products/noor-front.png','/products/mahr-detail.png']
 const base = [
   ['noor','Noor Silk Abaya',8490,'New Arrivals','Nida','Black',['Black','Midnight'],['S','M','L','XL'],'New','A fluid, softly structured abaya in premium Nida silk with a graceful drape and hidden front placket.'],
   ['mahr','Mahr Embroidered Abaya',12990,'Bridal','Chiffon','Ivory',['Ivory','Champagne'],['S','M','L'],'Bestseller','Delicate tonal embroidery catches the light on this occasion-ready silhouette.'],
