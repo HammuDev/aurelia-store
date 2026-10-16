@@ -1,6 +1,8 @@
 export const WHATSAPP_NUMBER = '923279500086'
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
 export const PHONE_DISPLAY = '0327 9500086'
+export const FREE_SHIPPING_THRESHOLD = 8000
+export const BUNDLE_DISCOUNT = 0.1
 
 export const SOCIAL = {
   instagram: 'https://instagram.com/aurelia.pk',
